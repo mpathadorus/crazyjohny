@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental State Visualization</title>
+</head>
+<body>
+    <h1>Mental State Visualization Web App</h1>
+    <form id="questionsForm">
+        <h2>Please answer the following questions:</h2>
+        <label for="question1">1. How do you feel today?</label><br>
+        <input type="text" id="question1" name="question1" required><br>
+
+        <label for="question2">2. Rate your stress level (1-10):</label><br>
+        <input type="number" id="question2" name="question2" min="1" max="10" required><br>
+
+        <label for="question3">3. What's your main concern right now?</label><br>
+        <input type="text" id="question3" name="question3" required><br>
+
+        <!-- Add more questions as needed -->
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="visualization">
+        <h2>Your Visualization:</h2>
+        <img id="visualizationImage" src="" alt="Your visualization will appear here" style="display:none;">
+    </div>
+
+    <script>
+        document.getElementById('questionsForm').onsubmit = function(event) {
+            event.preventDefault();
+            // Here you would process the answers and generate the visualization
+            document.getElementById('visualizationImage').style.display = "block";
+            document.getElementById('visualizationImage').src = "path_to_generated_image.jpg"; 
+        };
+    </script>
+</body>
+</html>
