@@ -3,41 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental State Artwork</title>
-    <script>
-        function generateSVG(score) {
-            let color, shape, expression;
-
-            // Define color and shape based on score
-            if (score < 3) {
-                color = 'red';
-                shape = 'circle';
-                expression = 'sad';
-            } else if (score < 7) {
-                color = 'yellow';
-                shape = 'square';
-                expression = 'neutral';
-            } else {
-                color = 'green';
-                shape = 'triangle';
-                expression = 'happy';
-            }
-
-            const svg = `<svg width="100" height="100">
-                            <${shape} cx="50" cy="50" r="40" fill="${color}" />
-                            <text x="10" y="90" font-size="15" fill="black">${expression}</text>
-                        </svg>`;
-            document.getElementById('artwork').innerHTML = svg;
-        }
-
-        // Example: Call this function with the score
-        window.onload = function() {
-            generateSVG(5); // Change this score to see different artworks
-        };
-    </script>
+    <title>Mental State Visualization</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .avatar { width: 100px; height: 100px; margin: 20px; }
+        .scenic { width: 100%; height: 400px; background-size: cover; }
+        .container { display: flex; flex-direction: column; align-items: center; }
+    </style>
 </head>
 <body>
-    <h1>Your Mental State Artwork</h1>
-    <div id="artwork"></div>
+    <div class="container">
+        <h1>Mental State Visualization</h1>
+        <img class="avatar" src="path/to/avatar.png" alt="Avatar">
+
+        <div id="scenic-representation" class="scenic"></div>
+
+        <form>
+            <h2>Answer the following questions:</h2>
+            <ol>
+                <li>How have you been feeling lately?</li>
+                <li>Rate your stress level today (1-10):</li>
+                <li>How well did you sleep last night?</li>
+                <li>Are you facing any challenges at work/school?</li>
+                <li>How supported do you feel by family and friends?</li>
+                <li>Have you had any joyful moments lately?</li>
+                <li>What are you grateful for today?</li>
+                <li>How often do you take a break?</li>
+                <li>Do you engage in activities that make you happy?</li>
+                <li>How often do you feel overwhelmed?</li>
+                <li>What hobbies do you enjoy?</li>
+                <li>Do you talk to someone about your feelings?</li>
+                <li>How is your physical health contributing to your mental state?</li>
+                <li>Do you practice mindfulness or meditation?</li>
+                <li>How do you cope with negative emotions?</li>
+            </ol>
+        </form>
+    </div>
+
+    <script>
+        const scenic = document.getElementById('scenic-representation');
+        const mentalState = 'excellent'; // This variable can be updated based on user input
+
+        switch (mentalState) {
+            case 'excellent':
+                scenic.style.backgroundImage = 'url(path/to/sunny-beach.jpg)';
+                break;
+            case 'good':
+                scenic.style.backgroundImage = 'url(path/to/peaceful-park.jpg)';
+                break;
+            case 'fair':
+                scenic.style.backgroundImage = 'url(path/to/cloudy-rainy.jpg)';
+                break;
+            case 'poor':
+                scenic.style.backgroundImage = 'url(path/to/dark-forest.jpg)';
+                break;
+            default:
+                scenic.style.backgroundImage = 'url(path/to/default-image.jpg)';
+        }
+    </script>
 </body>
 </html>
